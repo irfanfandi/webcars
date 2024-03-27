@@ -4,7 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 
 export default function Home() {
   const [data, setData]: any[] = useState([]);
-  const [selectedData, setSelectedData]: any = useState({});
+  const [selectedData, setSelectedData]: any = useState(null);
 
   const getData = async () => {
     try {
@@ -46,9 +46,11 @@ export default function Home() {
             );
           })}
         </div>
-        <Suspense fallback={"Loading...."}>
-          <DetailCar selectedData={selectedData} />
-        </Suspense>
+        {selectedData !== null && (
+          <Suspense fallback={"Loading...."}>
+            <DetailCar selectedData={selectedData} />
+          </Suspense>
+        )}
       </section>
     </main>
   );
