@@ -23,10 +23,6 @@ export default function Home() {
     getData();
   }, []);
 
-  useEffect(() => {
-    console.log(selectedData);
-  }, [selectedData]);
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between px-24">
       <section className="flex text-gray-600 body-font items-center justify-between gap-4">

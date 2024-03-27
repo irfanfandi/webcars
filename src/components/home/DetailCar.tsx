@@ -11,10 +11,22 @@ const DetailCar = ({ selectedData }: Props) => {
       <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-            {`${selectedData?.model} - ${selectedData?.year}`}
+            {`${selectedData?.make} ${selectedData?.model} ${selectedData?.year}`}
             <br className="hidden lg:inline-block" />
             {selectedData?.color}
           </h1>
+          <div className="mb-2">
+            <p className="leading-relaxed ">
+              Transmission : <span>{selectedData?.transmission}</span>
+            </p>
+            <p className="leading-relaxed ">
+              Model : <span>{selectedData?.model}</span>
+            </p>
+            <p className="leading-relaxed ">
+              Mileage : <span>{selectedData?.mileage}</span>
+            </p>
+          </div>
+          Features
           <ul className="mb-8">
             {selectedData?.features?.length > 0 &&
               selectedData?.features.map((e: string, idx: number) => {
@@ -25,7 +37,6 @@ const DetailCar = ({ selectedData }: Props) => {
                 );
               })}
           </ul>
-
           <div className="flex justify-center">
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
               {`$ ${selectedData?.price || 0}`}
